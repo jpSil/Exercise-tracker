@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jpsil.tracker.trackerController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane fx:id="graphContainer" prefHeight="410.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <GridPane alignment="CENTER" prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Label layoutX="32.0" layoutY="58.0" text="Begin date:" />
+                  <DatePicker fx:id="retrieveExercisesBeginDate" layoutX="31.0" layoutY="138.0" prefHeight="25.0" prefWidth="147.0" promptText="dd/mm/yyyy" showWeekNumbers="true" />
+                   <ChoiceBox fx:id="retrieveExercisesChoiceBox" layoutX="216.0" layoutY="74.0" prefWidth="150.0">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="All" />
+                               <String fx:value="Run" />
+                               <String fx:value="Walk" />
+                               <String fx:value="Swim" />
+                           </FXCollections>
+                       </items>
+                   </ChoiceBox>
+                  <Label layoutX="216.0" layoutY="58.0" text="Exercise type" />
+                  <Button fx:id="retrieveExercisesButton" layoutX="291.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Retrieve" />
+                  <DatePicker fx:id="retrieveExercisesEndDate" layoutX="32.0" layoutY="74.0" prefHeight="26.0" prefWidth="146.0" promptText="dd/mm/yyyy" showWeekNumbers="true" />
+                  <Label layoutX="31.0" layoutY="122.0" text="End date:" />
+                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="395.0">
+                     <children>
+                        <Label text="Retrieve data" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="402.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" layoutX="3.0" prefHeight="29.0" prefWidth="395.0">
+                     <children>
+                        <Label text="Add exercise" />
+                     </children>
+                  </HBox>
+                  <DatePicker fx:id="addExerciseDatePicker" layoutX="28.0" layoutY="73.0" prefHeight="19.0" prefWidth="151.0" promptText="dd/mm/yyyy" showWeekNumbers="true" />
+                  <Label layoutX="28.0" layoutY="57.0" text="Date:" />
+                   <ChoiceBox fx:id="addExerciseChoiceBox" layoutX="211.0" layoutY="73.0" prefWidth="150.0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Run" />
+                                <String fx:value="Walk" />
+                                <String fx:value="Swim" />
+                            </FXCollections>
+                        </items>
+                   </ChoiceBox>
+                  <Label layoutX="211.0" layoutY="57.0" text="Exercise type" />
+                  <Button fx:id="addExerciseButton" layoutX="286.0" layoutY="149.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Add" />
+                  <Label layoutX="28.0" layoutY="127.0" text="Duration" />
+                  <TextField fx:id="addExerciseDurationField" alignment="CENTER_RIGHT" layoutX="28.0" layoutY="141.0" prefHeight="26.0" prefWidth="63.0" />
+                  <Label layoutX="91.0" layoutY="146.0" text=": Minutes" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>
